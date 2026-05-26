@@ -1,0 +1,29 @@
+.TextAbove{
+  margin-top: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: "Press Start 2P", monospace;
+  opacity: 50%;
+}
+.TextAbove-Title { font-size: 14px; margin: 16px 0 6px; color: #ffffff; 
+background: linear-gradient(
+    120deg,
+    #666,
+    #ffffff,
+    #666 );
+  
+background-size: 200% auto;
+
+color: transparent;
+background-clip: text;
+-webkit-background-clip: text;
+
+animation: glowSweep 12s ease-in-out infinite;
+}
+
+/* glow movement */
+@keyframes glowSweep {
+  0%   { background-position: 200% center; }
+  50%  { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}

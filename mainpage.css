@@ -1,0 +1,181 @@
+.background {
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    width: 112%;
+    height: 112%;
+
+    background-image: url("images/VRChat_2025-11-21_22-20-53.584_1920x1080.png");
+    background-size: cover;
+    background-position: center;
+
+    z-index: -1;
+
+    transition: transform 0.1s ease-out;
+}
+
+
+/* changes pointer */
+.main-page-song-slider input[type="range"] { width: 120px; cursor: pointer; } 
+
+/* VOLUME SLIDER */
+.main-page-song-slider{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+img.IntroImage {
+  width: 600px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(0.5);
+
+  animation: fadeGrow 2.4s ease-out forwards;
+  animation-fill-mode: backwards; 
+
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+@keyframes fadeGrow {
+  from {
+    opacity: 0;
+    transform: scale(0.25);
+  }
+  to {
+    opacity: 1;
+    transform: scale(0.5);
+  }
+}
+
+img.IntroImage:hover {transform: scale(0.52); box-shadow: 0 0 30px rgba(255, 255, 255, 0.4) }
+img.IntroImage:active { transform: scale(0.47); }
+
+/* Gap between the 2 buttons */
+.main-page-buttons {
+  display: flex;
+  gap: 10px;
+
+}
+
+.PhotoGalleryButton {
+  display: inline-block; 
+  background-color: #363636; 
+  border: none;
+  color: white; 
+  padding: 15px 32px; 
+
+  text-align: center;
+  text-decoration: none; /* Removes default underline */
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 16px;
+
+  cursor: pointer; /* Changes cursor to a hand on hover */
+  border-radius: 8px; 
+
+  transform: scale(1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.PhotoGalleryButton:hover {transform: scale(1.02); box-shadow: 0 0 10px rgba(255, 255, 255, 0.4) }
+.PhotoGalleryButton:active { transform: scale(0.97); }
+
+.The-Ziver-Website {
+  display: inline-block; 
+  background-color: #363636; 
+  border: none;
+  color: white; 
+  padding: 15px 32px; 
+
+  text-align: center;
+  text-decoration: none; /* Removes default underline */
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 16px;
+
+  cursor: pointer; /* Changes cursor to a hand on hover */
+  border-radius: 8px; 
+
+  transform: scale(1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.The-Ziver-Website:hover {transform: scale(1.02); box-shadow: 0 0 10px rgba(255, 255, 255, 0.4) }
+.The-Ziver-Website:active { transform: scale(0.97); }
+
+
+/* #region GAME-LIKE MENU SYSTEM */
+/*
+.menu-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.IntroImage {
+    width: 260px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+.IntroImage:hover {
+    transform: scale(1.03);
+}
+
+.menu-options {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    opacity: 1;
+    transform: translateY(140px);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+.menu-options button {
+    background: rgba(40,40,40,0.85);
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 12px 24px;
+
+    font-family: monospace;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.menu-options button:hover {
+    transform: scale(1.05);
+    background: rgba(70,70,70,0.9);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(100px);
+}
+
+/* #endregion */

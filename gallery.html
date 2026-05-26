@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+
+</head>
+<body>
+    
+<div class="translucentbar gallery-page-song">
+    <a href="index.html" class="return-to-main-page">Return to Main Page</a>
+    
+    <div class="gallery-page-song-slider">
+    <!-- VOLUME SLIDER -->
+      <input
+      id="volume"
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      value="0.04"  
+      aria-label="Volume"
+    >
+</div>
+</div>
+
+<div class="image-grid" id="gallery"></div>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgm" src="Luigi Boccherini Minuetto (classical).m4a" loop preload="auto"></audio>
+
+<script>
+  const bgm = document.getElementById("bgm");
+  const volumeSlider = document.getElementById("volume");
+
+  // Initial volume
+  bgm.volume = Number(volumeSlider.value);
+
+  // Change volume live
+  volumeSlider.addEventListener("input", () => {
+    bgm.volume = Number(volumeSlider.value);
+  });
+
+  // Start music on first user interaction
+  document.addEventListener(
+    "click",
+    async () => {
+      try {
+        await bgm.play();
+      } catch (e) {}
+    },
+    { once: true }
+  );
+</script>
+<script src="galleryscript.js"></script>
+
+</body>
+</html>
