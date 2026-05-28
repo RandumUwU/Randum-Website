@@ -1,10 +1,10 @@
 const fs = require("node:fs");
 const path = require("path");
 
-const imagesDir = path.join(__dirname, 'images');
+const imagesDir = path.join(__dirname, 'images-optimized');
 const imagesOutputFile = path.join(__dirname, 'images.json');
 
-const validExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+const validExtensions = [".webp"];
 
 try {
     const files = fs.readdirSync(imagesDir);
