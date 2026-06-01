@@ -1,181 +1,370 @@
 .background {
     position: fixed;
-    top: -5%;
-    left: -5%;
-    width: 112%;
-    height: 112%;
-
-    background-image: url("images/VRChat_2025-11-21_22-20-53.584_1920x1080.png");
-    background-size: cover;
-    background-position: center;
+    width: 110vw;
+    height: 110vh;
+    object-fit: cover;
 
     z-index: -1;
+    top: -5%;
+    left: -5%;
 
-    transition: transform 0.1s ease-out;
+    pointer-events: none;
+
+    transition: transform 0.2s linear;
 }
-
 
 /* changes pointer */
-.main-page-song-slider input[type="range"] { width: 120px; cursor: pointer; } 
+.main-page-song-slider input[type="range"] {
+  width: 120px;
+  cursor: pointer;
+}
 
 /* VOLUME SLIDER */
-.main-page-song-slider{
+.main-page-song-slider {
   position: fixed;
   top: 20px;
-  right: 20px;
+  left: 20px;
 }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-img.IntroImage {
-  width: 600px;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 1;
-  transform: scale(0.5);
-
-  animation: fadeGrow 2.4s ease-out forwards;
-  animation-fill-mode: backwards; 
-
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-@keyframes fadeGrow {
-  from {
-    opacity: 0;
-    transform: scale(0.25);
-  }
-  to {
+.first-section {
     opacity: 1;
-    transform: scale(0.5);
-  }
+    transition: opacity 0.1s linear;
 }
 
-img.IntroImage:hover {transform: scale(0.52); box-shadow: 0 0 30px rgba(255, 255, 255, 0.4) }
-img.IntroImage:active { transform: scale(0.47); }
+.vrc-title {
+    font-size: 7.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: "VT323";
 
-/* Gap between the 2 buttons */
+    color: rgb(255, 255, 255);
+    text-shadow:
+        0 0 2px rgba(255,255,255,0.15),
+        0 0 8px rgba(255,255,255,0.08),
+        3px 3px 8px rgba(0,0,0,0.6);
+
+    margin-bottom: 10px;
+}
+
+
+
 .main-page-buttons {
+  text-align: center;
+}
+
+.vrchat-related-buttons {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
 
+  align-items: center;
+  gap: 20px;
 }
 
+/* #region DAILY VRCHAT BUTTON */
+.daily-vrchat-btn, 
 .PhotoGalleryButton {
-  display: inline-block; 
-  background-color: #363636; 
-  border: none;
-  color: white; 
-  padding: 15px 32px; 
-
-  text-align: center;
-  text-decoration: none; /* Removes default underline */
-
-  font-family: "Press Start 2P", monospace;
-  font-size: 16px;
-
-  cursor: pointer; /* Changes cursor to a hand on hover */
-  border-radius: 8px; 
-
-  transform: scale(1);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  width: fit-content;
 }
 
-.PhotoGalleryButton:hover {transform: scale(1.02); box-shadow: 0 0 10px rgba(255, 255, 255, 0.4) }
-.PhotoGalleryButton:active { transform: scale(0.97); }
+.daily-vrchat-btn {
+    background:
+        linear-gradient(
+            90deg,
+            #ff4500,
+            #ff8800,
+            #ffd000,
+            #ff8800,
+            #ff4500
+        );
 
-.The-Ziver-Website {
-  display: inline-block; 
-  background-color: #363636; 
-  border: none;
-  color: white; 
-  padding: 15px 32px; 
+    background-size: 300% 300%;
+    animation: fireMove 6s ease infinite;
+    background-clip: text;
 
-  text-align: center;
-  text-decoration: none; /* Removes default underline */
-
-  font-family: "Press Start 2P", monospace;
-  font-size: 16px;
-
-  cursor: pointer; /* Changes cursor to a hand on hover */
-  border-radius: 8px; 
-
-  transform: scale(1);
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.The-Ziver-Website:hover {transform: scale(1.02); box-shadow: 0 0 10px rgba(255, 255, 255, 0.4) }
-.The-Ziver-Website:active { transform: scale(0.97); }
-
-
-/* #region GAME-LIKE MENU SYSTEM */
-/*
-.menu-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.IntroImage {
-    width: 260px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 2;
-
-    transition:
-        transform 0.3s ease,
-        filter 0.3s ease;
-}
-
-.IntroImage:hover {
-    transform: scale(1.03);
-}
-
-.menu-options {
-    position: absolute;
-
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    opacity: 1;
-    transform: translateY(140px);
-
-    transition:
-        opacity 0.4s ease,
-        transform 0.4s ease;
-}
-
-.menu-options button {
-    background: rgba(40,40,40,0.85);
-    color: white;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
 
     border: none;
-    border-radius: 10px;
 
-    padding: 12px 24px;
+    font-family: "VT323", monospace;
+    font-size: 72px;
 
-    font-family: monospace;
     cursor: pointer;
+    display: inline-block;
 
     transition: 0.2s;
 }
 
-.menu-options button:hover {
-    transform: scale(1.05);
-    background: rgba(70,70,70,0.9);
+@keyframes fireMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
-.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(100px);
+@keyframes fireFlicker {
+  from {filter: brightness(1);}
+  to {filter: brightness(1.3);}
 }
-
 /* #endregion */
+
+/* #region DAILY VRCHAT HOVER EFFECTS */
+
+
+.daily-vrchat-btn:hover {
+
+    animation:
+        fireFlow 1s linear infinite;
+
+    filter:
+        brightness(1.2);
+
+    transform:
+        scale(1.05);
+}
+
+@keyframes fireFlow {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+/* #endregion */
+
+/* #region DAILY VRCHAT INFORMATION TAB */
+.daily-vrc-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.daily-vrc-header h1 {
+    margin: 0;
+
+    font-family: "VT323", monospace;
+    font-size: 52px;
+    letter-spacing: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4500,
+            #ff8800,
+            #ffd000,
+            #ff8800,
+            #ff4500
+        );
+    background-size: 300% 300%;
+
+    animation:
+        fireMove 6s ease infinite;
+    background-clip: text;
+
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0 0 8px rgba(255,120,0,0.5));
+}
+
+.daily-vrc-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    transform: translateY(-8px);   
+}
+
+.daily-vrchat-information {
+    position: fixed;
+
+    top: 0;
+    right: -1000px;
+
+    width: 750px;
+    height: 100vh;
+
+    background: rgba(0,0,0,0.7);
+
+    backdrop-filter: blur(10px);
+
+    color: white;
+    font-size: 26px;
+    font-family: "VT323", monospace;
+    text-align: center;
+
+    padding: 50px;
+
+    opacity: 1;
+
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 8%,
+            black 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 8%,
+            black 100%
+        );
+
+    transition:
+        right 1.75s ease,
+        opacity 0.5s ease;
+    z-index: 1000;
+}
+
+.daily-vrchat-information.show {
+    right: 0;
+    opacity: 1;
+}
+/* #endregion */
+
+/* #region PHOTO GALLERY BUTTON */
+.PhotoGalleryButton {
+  color: white;
+ 
+  text-align: center;
+  text-decoration: none; /* Removes default underline */
+
+  font-family: "VT323", monospace;
+  font-size: 52px;
+
+  cursor: pointer; /* Changes cursor to a hand on hover */
+
+
+  transform: scale(1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+
+  transition: 0.2 ease;
+}
+
+.PhotoGalleryButton:hover {
+    animation: vhsHoverFlicker 0.15s infinite alternate;
+    
+    text-shadow: 0 0 2px white, 0 0 7px white;
+
+    transform: scale(1.05);
+}
+
+
+@keyframes vhsHoverFlicker {
+    0% {opacity: 1; filter: brightness(1);}
+    20% {opacity: 0.8; filter: brightness(1.1);}
+    40% {opacity: 1; filter: brightness(0.9);}
+    60% {opacity: 0.85; filter: brightness(1.3);}
+    80% {opacity: 1; filter: brightness(1);}
+    100% {opacity: 0.9; filter: brightness(1.1);}
+}
+/* #endregion */
+
+.socials-projects-wrapper {
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    font-family: "VT323", monospace;
+    font-size: 72px;
+
+    gap: 120px;
+    width: 100%;
+    margin-top: 80px;
+
+    
+}
+
+.socials-section,
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+}
+
+
+.socials {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: 10px;
+
+    transform: translateY(-52px);
+}
+
+.socials a {
+    font-family: "VT323", monospace;
+    font-size: 30px;
+    text-decoration: none;
+    color: #87cefa;
+
+    transform: scale(1);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+
+    transition: 0.2 ease;
+}
+
+.youtube:hover ,
+.twitch:hover ,
+.twitter:hover ,
+.discord:hover ,
+.kofi:hover {
+    animation: vhsHoverFlicker 0.15s infinite alternate;
+    
+    text-shadow: 0 0 2px rgb(155, 243, 255), 0 0 7px rgb(168, 238, 255);
+
+    transform: scale(1.05);
+}
+
+
+/* #region PROJECTS */
+.projects-list {
+    color: white;
+    text-align: center;
+
+    font-family: "VT323", monospace;
+    font-size: 30px;
+
+    transform: translateY(-8px);
+}
+
+.projects-list p {
+    margin: 0;
+    transform: translateY(-44px);
+}
+/* #endregion */
+
+
+
+
+.second-section {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-family: "VT323", monospace;
+    font-size: 128px;
+
+    opacity: 0;
+    transition: opacity 0.1s linear;
+}
+
+
+
+

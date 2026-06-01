@@ -1,3 +1,11 @@
+// Warning Pop up when user enters gallery
+const warningBox = document.getElementById("warningBox");
+const warningClose = document.getElementById("warningClose");
+
+warningClose.addEventListener("click", () => {
+    warningBox.style.display = "none";
+});
+
 // @ts-check
 
 //region GalleryAPI
