@@ -5,14 +5,12 @@ body {
     display: grid;
     place-items: center;
 
-    /* In case websites that don't support gradient  */
     background-color: rgb(0, 0, 0); 
     
     background: linear-gradient(270deg, #111, #444, #111);
     background-size: 400% 400%;
     animation: gradientMove 10s ease infinite;
 }
-
 
 
 .return-to-main-page {
