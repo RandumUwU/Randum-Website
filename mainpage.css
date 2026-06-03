@@ -13,25 +13,54 @@
     transition: transform 0.2s linear;
 }
 
-/* changes pointer */
+
+/* #region VOLUME SLIDER */
 .main-page-song-slider input[type="range"] {
   width: 120px;
   cursor: pointer;
 }
 
-/* VOLUME SLIDER */
-.main-page-song-slider {
-  position: fixed;
-  top: 20px;
-  left: 20px;
+/* The actual volume slider */
+.main-page-volume-display {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    font-family: "VT323", monospace;
+    font-size: 28px;
+
+    color: rgba(255,255,255,0.7);
+
+    z-index: 9999;
 }
 
+#volume {
+    width: 120px;
+    opacity: 0;
+
+    transition: opacity 0.2s ease;
+}
+
+.main-page-volume-display:hover #volume {
+    opacity: 1;
+}
+/* #endregion */
+
+/* THE FIRST THING THE USER SEES WHEN OPENING THE WEBSITE */
 .first-section {
     opacity: 1;
     transition: opacity 0.1s linear;
 }
 
-.vrc-title {
+/* #region MAIN TITLE + BUTTONS UNDER IT */
+
+/* THE MAIN TITLE OF THE WEBSITE */
+.vrc-related-content-title {
     font-size: 7.5rem;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -46,19 +75,18 @@
     margin-bottom: 10px;
 }
 
-
-
-.main-page-buttons {
+.main-title {
   text-align: center;
 }
-
-.vrchat-related-buttons {
+/* POSITIONING OF THE BUTTONS UNDER THE TITLE (CENTER) */
+.buttons-under-vrc-related-content-title {
   display: flex;
   flex-direction: column;
 
   align-items: center;
   gap: 20px;
 }
+
 
 /* #region DAILY VRCHAT BUTTON */
 .daily-vrchat-btn, 
@@ -110,18 +138,10 @@
 /* #endregion */
 
 /* #region DAILY VRCHAT HOVER EFFECTS */
-
-
 .daily-vrchat-btn:hover {
-
-    animation:
-        fireFlow 1s linear infinite;
-
-    filter:
-        brightness(1.2);
-
-    transform:
-        scale(1.05);
+    animation: fireFlow 1s linear infinite;
+    filter: brightness(1.2);
+    transform: scale(1.05);
 }
 
 @keyframes fireFlow {
@@ -249,12 +269,9 @@
 
 .PhotoGalleryButton:hover {
     animation: vhsHoverFlicker 0.15s infinite alternate;
-    
     text-shadow: 0 0 2px white, 0 0 7px white;
-
     transform: scale(1.05);
 }
-
 
 @keyframes vhsHoverFlicker {
     0% {opacity: 1; filter: brightness(1);}
@@ -265,7 +282,9 @@
     100% {opacity: 0.9; filter: brightness(1.1);}
 }
 /* #endregion */
+/* #endregion */
 
+/* RESPONSIBLE FOR THE POSITION AND SIZE OF THE SOCIALS + PROJECTS TITLE */
 .socials-projects-wrapper {
     color: white;
 
@@ -279,10 +298,9 @@
     gap: 120px;
     width: 100%;
     margin-top: 80px;
-
-    
 }
 
+/* TBH I HAVE NO IDEA WHAT THIS DOES BUT ITS RESPONSIBILTY IS THE SAME AS THE CODE ABOVE XD */
 .socials-section,
 .projects-section {
     display: flex;
@@ -291,7 +309,7 @@
     width: 600px;
 }
 
-
+/* #region MY SOCIALS LINK */
 .socials {
     display: flex;
     flex-direction: column;
@@ -327,9 +345,9 @@
 
     transform: scale(1.05);
 }
+/* #endregion */
 
-
-/* #region PROJECTS */
+/* #region PROJECTS LIST (COMING SOON) */
 .projects-list {
     color: white;
     text-align: center;
@@ -345,8 +363,6 @@
     transform: translateY(-44px);
 }
 /* #endregion */
-
-
 
 
 .second-section {

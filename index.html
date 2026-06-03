@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="info.css" />
 
     <meta
-      name="google-site-verification"
-      content="VYTlTzloNffnzT9EyJVBISVFiv2YhwCrBr90bCxuPrk"
-    />
+      name="google-site-verification" content="VYTlTzloNffnzT9EyJVBISVFiv2YhwCrBr90bCxuPrk"/>
   </head>
   <body>
     <section class="first-section">
+
+
       <video class="background"
         autoplay
         muted
@@ -28,36 +28,40 @@
       <source src="2026-05-28 00-35-48.mp4" type="video/mp4">
       </video>
 
-      <!-- BACKGROUND MUSIC -->
+
+      <!-- BACKGROUND SFX and VOLUME SLIDER -->
       <audio id="bgm" src="Fire SFX.mp3" loop preload="auto"></audio>
-      <div class="main-page-song-slider">
+
+      <div class="main-page-volume-display">
+        <span id="volumeText">VOL: 50%</span>
         <input
-          id="volume"
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value="0.45"
-          aria-label="Volume"
+            id="volume"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.5"
         />
       </div>
 
-      <!-- INFO BUTTON -->
+
+      <!-- BACKGROUND INFO BUTTON AT BOTTOM RIGHT -->
       <button id="infoBtn" class="info-btn">BACKGROUND INFO</button>
       <div id="infoBox" class="info-box">
         <p>The Background was recorded in a VRChat World called "Cunks Coughing City" by Cunks_Feet</p>
       </div>
 
-      <div class="main-page-buttons">
-        <p class="vrc-title">VRCHAT RELATED CONTENT</p>
 
-        <div class="vrchat-related-buttons">
+      <div class="main-title">
+        <p class="vrc-related-content-title">VRCHAT RELATED CONTENT</p>
+
+        <div class="buttons-under-vrc-related-content-title">
           <button id="DailyVRChatBtn" class="daily-vrchat-btn">Daily VRChat</button>
           <a href="gallery.html" class="PhotoGalleryButton"> Photo Gallery </a>
         </div>
       </div>
 
-      <!-- DAILY VRCHAT PANEL -->
+      <!-- DAILY VRCHAT INFORMATION PANEL -->
       <div id="DailyVRChat" class="daily-vrchat-information">
         <div class="daily-vrc-header">
           <h1>Daily VRChat</h1>
@@ -78,7 +82,7 @@
           to receive notifications on when the event starts.
           <br>
           <br>
-          If you're new to the ≺ ≻ ≺ community, here's a quick breakdown:
+          If you're new to the <>< community, here's a quick breakdown:
           <br>
           <br>
           < represents an increase in chaos.
@@ -97,7 +101,7 @@
         </p>
       </div>
 
-      <!-- SOCIALS + PROJECTS -->
+      <!-- SOCIALS + PROJECTS TEXT -->
       <div class="socials-projects-wrapper">
         <!-- SOCIALS -->
         <div class="socials-section">

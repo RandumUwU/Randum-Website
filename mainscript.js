@@ -1,12 +1,5 @@
-// INFOBOX
-const infoBtn = document.getElementById("infoBtn");
-const infoBox = document.getElementById("infoBox");
 
-infoBtn.addEventListener("click", () => {
-  infoBox.classList.toggle("active");
-});
-
-// 3D allowing the background to move along the cursor
+// 3D BACKGROUND THAT MOVES ALONG THE MOUSE CURSOR
 const bg = document.querySelector(".background");
 
 document.addEventListener("mousemove", (e) => {
@@ -16,7 +9,27 @@ document.addEventListener("mousemove", (e) => {
     bg.style.transform = `translate(${-x}px, ${-y}px)`;
 });
 
+// #region IF USER MOVES VOLUME SLIDER, THE NUMBER CHANGES
+const volumeText = document.getElementById("volumeText");
 
+volumeSlider.addEventListener("input", () => {
+    const percent = Math.round(volumeSlider.value * 100);
+
+    volumeText.textContent = `VOL: ${percent}%`;
+
+    bgm.volume = Number(volumeSlider.value);
+});
+// #endregion
+
+// RESPONSIBLE FOR FADING IN THE "INFO BOX PANEL" AT BOTTOM RIGHT
+const infoBtn = document.getElementById("infoBtn");
+const infoBox = document.getElementById("infoBox");
+
+infoBtn.addEventListener("click", () => {
+  infoBox.classList.toggle("active");
+});
+
+// FIRST SECTION OF THE WEBSITE THE USER SEES WHEN OPENING THE WEBSITE
 const firstSection = document.querySelector(".first-section");
 
 window.addEventListener("scroll", () => {
@@ -29,7 +42,7 @@ window.addEventListener("scroll", () => {
     firstSection.style.opacity = opacity;
 });
 
-
+// #region ALLOWS THE DVRC PANEL TO SLIDE IN AND CLOSE WHEN CLICKED ON EITHER THE BUTTON OR ANYWHERE EXCEPT THE "PANEL"
 const DailyVRChatBtn = document.getElementById("DailyVRChatBtn");
 const DailyVRChat = document.getElementById("DailyVRChat");
 
@@ -42,6 +55,10 @@ DailyVRChat.addEventListener("click", (event) => {
     event.stopPropagation();
 });
 
+volumeSlider.addEventListener("click", (event) => {
+    event.stopPropagation();
+});
+
 document.addEventListener("click", () => {
     DailyVRChat.classList.remove("show");
 });
@@ -51,8 +68,9 @@ window.addEventListener("scroll", () => {
         DailyVRChat.classList.remove("show");
     }
 });
+// #endregion
 
-
+// #region USERS ARE ABLE TO SCROLL DOWN TO THE SECOND SECTION OF THE WEBSITE (MORE CONTENT SOON...)
 const moreContent =
     document.querySelector(".second-section");
 
@@ -72,3 +90,4 @@ window.addEventListener("scroll", () => {
 
     moreContent.style.opacity = opacity;
 });
+//# endregion

@@ -1,10 +1,29 @@
-// Warning Pop up when user enters gallery
+// WARNING POP UP WHEN  OPENING THE GALLERY
 const warningBox = document.getElementById("warningBox");
 const warningClose = document.getElementById("warningClose");
 
 warningClose.addEventListener("click", () => {
     warningBox.style.display = "none";
 });
+
+// #region IF USER MOVES VOLUME SLIDER, THE NUMBER CHANGES 
+// (VOLUME IN HTML IS SET TO 5% BECAUSE SONG IS VERY LOUD SO WE SCALE IT TO 0.1 HERE)
+// (5% IS THE "NEW" 50% IN THE WEBSITE)
+
+const volumeText = document.getElementById("volumeText");
+
+function updateVolume() {
+    const percent = Math.round(volumeSlider.value * 100);
+
+    volumeText.textContent = `VOL: ${percent}%`;
+
+    bgm.volume = volumeSlider.value * 0.1;
+}
+
+updateVolume();
+
+volumeSlider.addEventListener("input", updateVolume);
+// #endregion
 
 // @ts-check
 
